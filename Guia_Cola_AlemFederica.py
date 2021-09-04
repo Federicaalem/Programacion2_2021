@@ -108,3 +108,24 @@ assert p.sacar() == 1
 assert p.primero() == 2
 p.vaciar_Cola()
 assert p.es_vacia() == True
+
+
+print()
+# Ejercicio 5:
+# Escriba una función que reciba una Cola C1 y mueva sus elementos a una nueva Cola c2,
+# manteniendo el orden de salida de los elementos. Al finalizar la Cola C1 no debe contener elementos.
+
+def trasladar(c1)->Cola:
+    
+    c2 = Cola()
+
+    for i in range (c1.tamanio()):
+        c2.agregar(c1.sacar()) 
+
+c1 = Cola()
+c1.agregar("Federica")
+c1.agregar("Romina")
+#c2 = trasladar(c1)
+trasladar(c1)
+
+assert c1.es_vacia() == True
