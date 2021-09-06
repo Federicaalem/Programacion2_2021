@@ -233,3 +233,123 @@ c2.agregar(7)
 assert c3.concat(c1,c2) == [2, 3, 4, 5, 6, 7]
 
 
+
+print()
+# Ejercicio 7
+"""Escriba una rutina que reciba dos Colas C1 y C2 de números enteros y 
+proceda a intercambiar sus elementos, manteniendo el orden de salida de los mismos.
+ Al finalizar la rutina, la Cola C1 tendrá los elementos de la 
+Cola C2 y ésta a su vez tendrá los elementos de la Cola C1."""
+
+class Cola:
+    
+    def __init__(self):
+      self.elementos = []
+      
+      
+    def agregar(self, item):
+        self.elementos.append(item)
+
+
+    def es_vacia(self)->bool: 
+        return self.elementos == []
+
+
+    def primero(self):
+        if not self.es_vacia():
+            return self.elementos[0]
+
+
+    def tamanio(self):
+        return len(self.elementos)
+
+
+    def sacar(self):
+        if not self.es_vacia():
+            return self.elementos.pop(0)
+        
+        
+    def __str__(self):
+        return ("{}".format(self.elementos))
+
+
+    def imprimir_Cola(self):
+       
+        for i in self.elementos:
+                 print(i)
+
+
+    def vaciar_Cola(self):       
+        while self.es_vacia() != []:
+            self.elementos.pop(0)
+            if self.elementos == []:
+                return True            
+
+
+    def dar_vuelta(self):
+        nuevaCola =[]
+        
+        while not self.es_vacia():                
+            nuevaCola.append(self.sacar())
+        
+        for i in nuevaCola:
+             self.elementos.insert(0, i)
+             
+             
+             
+    def concat(self, c1,c2): # resultado = C1+C2
+        res1 = []
+        res2= []
+        
+        for i in range (c1.tamanio()): #en el rango del tamaño de c1
+           
+            res1.append(c1.sacar())
+        
+        c1.agregar(res1)
+            
+        for i in range (c2.tamanio()):
+            
+            res2.append(c2.sacar())
+        
+        c2.agregar(res2)
+        
+        resultado = res1 + res2
+
+        return resultado
+    
+    
+    def intercambiar(self, c2):
+         intercambio = Cola()
+         
+         for i in range (c1.tamanio()):
+             intercambio.agregar(c1.sacar())
+            
+             c1.agregar(c2.sacar())
+        
+         
+#          #c2.agregar(intercambio)
+         
+             c2.agregar(intercambio.sacar())
+         
+         print(f"c1: {c1}")
+         print(f"c2: {c2}")
+         print(intercambio)
+         
+         return c1
+    
+c1= Cola()
+c1.agregar(1)
+c1.agregar(4)
+c1.agregar(8)
+# c1 = [1,4,8]
+
+c2= Cola()
+c2.agregar(4)
+c2.agregar(2)
+c2.agregar(7)
+# c2 = [4,2,7]
+
+c1.intercambiar(c2)
+# c1 == [4,2,7]
+# c2 == [1,4,8]
+
