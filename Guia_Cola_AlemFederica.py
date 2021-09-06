@@ -353,3 +353,19 @@ c1.intercambiar(c2)
 # c1 == [4,2,7]
 # c2 == [1,4,8]
 
+
+
+
+## Ejercicio 8
+"""Dè una lista de ejemplos de problemas donde puede usarse una cola como sistema
+de administración de la información y como podría pensarse un programa pensando estas ideas."""
+
+"""
+En un examen o practico para que aquel que primero entrego su trabajo pueda recibir primero la nota, y asi
+sucesivamente.
+Un programa donde controle la cola de entregas de trabajos, es decir el orden.
+
+Con respecto actualmente serviria para las vacunas, aquel que se anoto pueda estar recibiendo su vacuna en orden.
+
+Para un banco, gestor de turnos.
+"""
